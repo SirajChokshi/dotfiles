@@ -1,0 +1,12 @@
+.DS_Store
+.zsh_history
+
+# downloads
+themes/*
+!themes/.gitkeep
+
+plugins/*
+!plugins/.gitkeep
+
+# private
+configs/.netflix
