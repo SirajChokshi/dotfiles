@@ -75,6 +75,11 @@ fi
 
 #### ---- Programs ----------------------------------------------
 
+# Development
+brew install nvm
+brew install nginx
+brew install pnpm
+
 # Terminal
 brew install --cask iterm2
 
