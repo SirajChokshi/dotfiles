@@ -26,6 +26,20 @@ else
     xcode-select --install
 fi
 
+# Plugin Manager (Zap <https://www.zapzsh.org/)
+if [ -f "$HOME/.local/share/zap/zap.zsh" ]; then
+    echo "Zap found. Skipping installation..."
+else
+    echo "Zap not found. Installing..."
+    echo "You will be prompted for your password (and this might take a while)."
+    zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh)
+fi
+
+# Prompt
+curl -sS https://starship.rs/install.sh | sh
+starship preset nerd-font-symbols > ~/.config/starship.toml
+
+
 ## Symlinks
 
 # Link zshrc
@@ -65,20 +79,40 @@ else
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-#### ---- Terminal ----------------------------------------------
-if [ -d "${DIR}/themes/spaceship-prompt" ] 
-then
-    echo "Spaceship theme found. Skipping installation..." 
-else
-    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "${DIR}/themes/spaceship-prompt" --depth=1
-fi
-
 #### ---- Programs ----------------------------------------------
 
 # Development
-brew install nvm
 brew install nginx
+
+# General (Rosetta)
+softwareupdate --install-rosetta
+
+#### ---- Languages ---------------------------------------------
+
+## Node
+brew install fnm
+echo '"$(fnm env --use-on-cd)"' >> ~/.zprofile
+fnm install 18
 brew install pnpm
+
+# use ni with pnpm as the default
+pnpm i -g @antfu/ni
+echo "defaultAgent=pnpm # default \"prompt\"\nglobalAgent=pnpm\n" >> ~/.nirc
+
+# Python 3
+echo "alias python=/usr/bin/python3" >> ~/.zshrc
+echo "alias pip=/usr/bin/pip3" >> ~/.zshrc
+
+# Go
+brew install go
+
+# TODO - add fnm as an option
+
+
+# Node
+
+
+#### ---- Applications ------------------------------------------
 
 # Terminal
 brew install --cask iterm2
