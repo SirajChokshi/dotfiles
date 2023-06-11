@@ -32,7 +32,7 @@ if [ -f "$HOME/.local/share/zap/zap.zsh" ]; then
 else
     echo "Zap not found. Installing..."
     echo "You will be prompted for your password (and this might take a while)."
-    zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh)
+    curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh
 fi
 
 # Prompt
@@ -94,6 +94,7 @@ brew install fnm
 echo '"$(fnm env --use-on-cd)"' >> ~/.zprofile
 fnm install 18
 brew install pnpm
+pnpm setup
 
 # use ni with pnpm as the default
 pnpm i -g @antfu/ni
