@@ -1,0 +1,2 @@
+defaultAgent=pnpm # default "prompt"
+globalAgent=pnpm # used for global installs

@@ -8,6 +8,9 @@ alias c='clear'
 alias ls='ls -G'
 alias la='ls -laG'
 
+# fnm
+alias nvm='fnm'
+
 # git
 alias g='git'
 alias gs='git status'
@@ -25,6 +28,6 @@ alias gloga='git log --oneline --graph --decorate --all'
 # node
 
 # if using https://github.com/antfu/ni
-# alias pnpm='na'
-# alias npm='na'
-# alias yarn='na'
+alias pnpm='na'
+alias npm='na'
+alias yarn='na'
